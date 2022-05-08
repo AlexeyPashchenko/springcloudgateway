@@ -1,0 +1,16 @@
+service:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discowery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: hidden
+          uri: http://localhost:8085
+          predicates:
+            - Method=GET
+
